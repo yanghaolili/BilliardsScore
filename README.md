@@ -1,2 +1,19 @@
-# BilliardsScore
-一款用于台球计分的小程序，可以记录中式八球 多人追分等...
+# billiards-score
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
