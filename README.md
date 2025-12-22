@@ -1,4 +1,4 @@
-# billiards-score
+# billiards-scores
 
 ## Project setup
 ```
