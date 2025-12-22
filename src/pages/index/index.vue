@@ -1,9 +1,6 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+		<button @click="handleOpenGame">开始对战</button>
 	</view>
 </template>
 
@@ -15,7 +12,8 @@
 			}
 		},
 		onLoad() {
-
+			console.log("生命周期");
+			
 		},
 		methods: {
 
@@ -23,27 +21,15 @@
 	}
 </script>
 
-<style>
+<style lang="less" scoped>
 	.content {
+		height: 800px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		background-image: url("/static/startBanner.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 </style>
