@@ -11,6 +11,12 @@
 			}
 		},
 		{
+			"path": "pages/newGame/index",
+			"style": {
+				"navigationBarTitleText": "新建比赛"
+			}
+		},
+		{
 			"path": "pages/login/index",
 			"style": {
 				"navigationBarTitleText": "登录"

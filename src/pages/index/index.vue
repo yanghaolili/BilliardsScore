@@ -15,7 +15,9 @@
             <text class="main-text">快速开始</text>
             <text class="sub-text">新比赛</text>
           </view>
-          <u-button class="color-tag">立即开始</u-button>
+          <u-button class="color-tag" @click="handleOpenNewGame"
+            >立即开始</u-button
+          >
         </view>
       </view>
 
@@ -45,7 +47,8 @@
         >
           <view class="match-info">
             <text class="player-score"
-              >{{ item.playerA }}<text class="vs"> VS</text> {{ item.playerB }}</text
+              >{{ item.playerA }}<text class="vs"> VS</text>
+              {{ item.playerB }}</text
             >
             <text class="match-date">{{ item.date }}</text>
           </view>
@@ -80,7 +83,7 @@ export default {
           scoreA: 3,
           playerB: "李四",
           scoreB: 2,
-          date: "2026/01/06",
+          date: "2026/01/06 ",
           time: "15:30",
           type: "中式黑八",
         },
@@ -109,6 +112,12 @@ export default {
     toMatchDetail() {
       //   this.$router.push('/match-detail')
     },
+    // 打开新比赛弹窗
+    handleOpenNewGame() {
+		uni.navigateTo({
+			url: '/pages/newGame/index'
+		});
+	},
   },
 };
 </script>
@@ -271,11 +280,11 @@ export default {
         font-weight: 500;
         color: @text-main;
       }
-	  .vs {
-		color: @secondary;
-		font-weight: 700;
-		margin: 0 8rpx;
-	  }
+      .vs {
+        color: @secondary;
+        font-weight: 700;
+        margin: 0 8rpx;
+      }
 
       .match-date {
         font-size: 14px;
