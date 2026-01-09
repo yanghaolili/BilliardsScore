@@ -352,7 +352,7 @@ export default {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 30rpx;
     padding: 60rpx 40rpx;
-    box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
     
     .logo-section {
       display: flex;

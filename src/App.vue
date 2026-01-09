@@ -10,7 +10,12 @@ export default {
     }
 
     // 检查登录状态
-    this.$store.dispatch("user/checkLogin");
+    this.$store.dispatch("checkLogin");
+    if (!this.$store.state.token) {
+      wx.redirectTo({
+        url: "/pages/login/index",
+      });
+    }
   },
   onShow: function () {
     console.log("App Show");

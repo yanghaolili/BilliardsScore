@@ -1,3 +1,7 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 const state = {
   userInfo: null,
   token: null,
@@ -41,9 +45,8 @@ const actions = {
   }
 }
 
-export default {
-  namespaced: true,
+export default new Vuex.Store({
   state,
   mutations,
   actions
-}
+})
