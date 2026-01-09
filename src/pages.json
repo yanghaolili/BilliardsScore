@@ -13,7 +13,8 @@
 		{
 			"path": "pages/newGame/index",
 			"style": {
-				"navigationBarTitleText": "新建比赛"
+				"navigationBarTitleText": "新建比赛",
+				"navigationStyle": "custom"
 			}
 		},
 		{

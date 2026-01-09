@@ -15,7 +15,7 @@
             <text class="main-text">快速开始</text>
             <text class="sub-text">新比赛</text>
           </view>
-          <u-button class="color-tag" @click="handleOpenNewGame"
+          <u-button size="small" class="color-tag" @click="handleOpenNewGame"
             >立即开始</u-button
           >
         </view>
@@ -136,58 +136,58 @@ export default {
 /* 顶部标题栏 */
 .top-header {
   background: @primary;
-  padding: 20px 16px;
+  padding: 40rpx 32rpx;
   text-align: center;
   color: #fff;
 
   .title {
-    font-size: 24px;
+    font-size: 48rpx;
     font-weight: 600;
-    margin: 0 0 4px 0;
+    margin: 0 0 8rpx 0;
   }
 
   .subtitle {
-    font-size: 12px;
+    font-size: 24rpx;
     color: @secondary;
-    letter-spacing: 2px;
+    letter-spacing: 4rpx;
     margin: 0;
   }
 }
 
 /* 快速开始区域 */
 .quick-start {
-  padding: 0 16px;
-  margin-top: -20px;
+  padding: 0 32rpx;
+  margin-top: -40rpx;
 
   .start-card {
     background: @primary;
-    border-radius: 16px;
+    border-radius: 32rpx;
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    border: 2px solid @secondary;
-    box-shadow: 0 4px 12px rgba(10, 61, 46, 0.15);
+    padding: 24rpx 32rpx;
+    border: 4rpx solid @secondary;
+    box-shadow: 0 8rpx 24rpx rgba(10, 61, 46, 0.15);
 
     .ball-icon {
-      width: 40px;
-      height: 40px;
-      margin-right: 12px;
+      width: 80rpx;
+      height: 80rpx;
+      margin-right: 24rpx;
     }
 
     .start-text {
       flex: 1;
 
       .main-text {
-        font-size: 18px;
+        font-size: 36rpx;
         color: #fff;
         font-weight: 500;
         display: block;
       }
 
       .sub-text {
-        font-size: 12px;
+        font-size: 24rpx;
         color: #eee;
-        margin-top: 2px;
+        margin-top: 4rpx;
       }
     }
 
@@ -195,53 +195,53 @@ export default {
       width: 140rpx;
       background: @secondary;
       color: #fff;
-      font-size: 12px;
-      padding: 4px 8px;
-      border-radius: 8px;
+      font-size: 24rpx;
+      padding: 8rpx 16rpx;
+      border-radius: 16rpx;
     }
   }
 }
 
 /* 功能入口区域 */
 .function-section {
-  padding: 0 16px;
-  margin-top: 30px;
+  padding: 0 32rpx;
+  margin-top: 60rpx;
 
   .section-title {
-    font-size: 16px;
+    font-size: 32rpx;
     color: @text-main;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 24rpx;
   }
 
   .func-cards {
     display: flex;
-    gap: 16px;
+    gap: 32rpx;
 
     .func-card {
       flex: 1;
       background: #fff;
-      border-radius: 12px;
-      padding: 24px 0;
+      border-radius: 24rpx;
+      padding: 48rpx 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
-        box-shadow: 0 4px 12px rgba(10, 61, 46, 0.1);
+        box-shadow: 0 8rpx 24rpx rgba(10, 61, 46, 0.1);
       }
 
       .func-icon {
-        width: 32px;
-        height: 32px;
-        margin-bottom: 8px;
+        width: 64rpx;
+        height: 64rpx;
+        margin-bottom: 16rpx;
       }
 
       .func-name {
-        font-size: 14px;
+        font-size: 28rpx;
         color: @text-main;
       }
     }
@@ -250,33 +250,33 @@ export default {
 
 /* 最近比赛区域 */
 .match-section {
-  padding: 0 16px;
-  margin-top: 20px;
+  padding: 0 32rpx;
+  margin-top: 40rpx;
 
   .section-title {
-    font-size: 16px;
+    font-size: 32rpx;
     color: @text-main;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 24rpx;
   }
 
   .match-card {
     background: #fff;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 24rpx;
+    padding: 32rpx;
+    box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
     cursor: pointer;
 
     .match-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
+      margin-bottom: 32rpx;
+      padding-bottom: 24rpx;
       border-bottom: 1px solid @border-color;
 
       .player-score {
-        font-size: 16px;
+        font-size: 32rpx;
         font-weight: 500;
         color: @text-main;
       }
@@ -287,7 +287,7 @@ export default {
       }
 
       .match-date {
-        font-size: 14px;
+        font-size: 24rpx;
         color: @text-secondary;
       }
     }
@@ -298,7 +298,7 @@ export default {
       align-items: center;
 
       .match-time {
-        font-size: 24px;
+        font-size: 48rpx;
         font-weight: 600;
         color: @secondary;
       }
@@ -307,15 +307,15 @@ export default {
         text-align: right;
 
         .time {
-          font-size: 14px;
+          font-size: 28rpx;
           color: @text-secondary;
           display: block;
         }
 
         .type {
-          font-size: 12px;
+          font-size: 24rpx;
           color: @text-secondary;
-          margin-top: 2px;
+          margin-top: 4rpx;
         }
       }
     }
