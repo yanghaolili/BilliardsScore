@@ -4,12 +4,12 @@ export default {
     // 初始化云开发
     if (wx.cloud) {
       wx.cloud.init({
-        env: "你的云环境ID",
+        env: process.env.VUE_APP_ENV_ID,
         traceUser: true,
       });
     }
 
-    // 检查登录状态
+    // // 检查登录状态
     this.$store.dispatch("checkLogin");
     if (!this.$store.state.token) {
       wx.redirectTo({
@@ -19,6 +19,7 @@ export default {
   },
   onShow: function () {
     console.log("App Show");
+    
   },
   onHide: function () {
     console.log("App Hide");

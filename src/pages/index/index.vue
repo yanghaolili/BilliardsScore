@@ -3,8 +3,8 @@
     <view class="home-page">
       <!-- 顶部标题栏 -->
       <header class="top-header">
-        <h1 class="title">台球计分助手</h1>
-        <p class="subtitle">POCKET SCORE</p>
+        <view class="title">台球大师</view>
+        <view class="subtitle">POCKET SCORE</view>
       </header>
 
       <!-- 快速开始区域 -->
@@ -15,7 +15,11 @@
             <text class="main-text">快速开始</text>
             <text class="sub-text">新比赛</text>
           </view>
-          <u-button size="small" class="color-tag" @click="handleOpenNewGame"
+          <u-button
+            size="small"
+            shape="circle"
+            :customStyle="{ width: '140rpx', background: '#D4AF37', color: '#fff', fontSize: '24rpx' }"
+            @click="handleOpenNewGame"
             >立即开始</u-button
           >
         </view>
@@ -114,16 +118,15 @@ export default {
     },
     // 打开新比赛弹窗
     handleOpenNewGame() {
-		uni.navigateTo({
-			url: '/pages/newGame/index'
-		});
-	},
+      uni.navigateTo({
+        url: "/pages/newGame/index",
+      });
+    },
   },
 };
 </script>
 
-<style scoped lang="less">
-@import "@/assets/css/theme.less"; // 引入主题色变量
+<style scoped lang="scss">
 .page {
   min-height: 100vh;
 }
@@ -135,8 +138,8 @@ export default {
 
 /* 顶部标题栏 */
 .top-header {
-  background: @primary;
-  padding: 40rpx 32rpx;
+  background: $primary;
+  padding: 80rpx 32rpx;
   text-align: center;
   color: #fff;
 
@@ -148,7 +151,7 @@ export default {
 
   .subtitle {
     font-size: 24rpx;
-    color: @secondary;
+    color: $secondary;
     letter-spacing: 4rpx;
     margin: 0;
   }
@@ -160,12 +163,12 @@ export default {
   margin-top: -40rpx;
 
   .start-card {
-    background: @primary;
+    background: $primary;
     border-radius: 32rpx;
     display: flex;
     align-items: center;
     padding: 24rpx 32rpx;
-    border: 4rpx solid @secondary;
+    border: 4rpx solid $secondary;
     box-shadow: 0 8rpx 24rpx rgba(10, 61, 46, 0.15);
 
     .ball-icon {
@@ -193,7 +196,7 @@ export default {
 
     .color-tag {
       width: 140rpx;
-      background: @secondary;
+      background: $secondary;
       color: #fff;
       font-size: 24rpx;
       padding: 8rpx 16rpx;
@@ -209,7 +212,7 @@ export default {
 
   .section-title {
     font-size: 32rpx;
-    color: @text-main;
+    color: $text-main;
     font-weight: 600;
     margin-bottom: 24rpx;
   }
@@ -242,7 +245,7 @@ export default {
 
       .func-name {
         font-size: 28rpx;
-        color: @text-main;
+        color: $text-main;
       }
     }
   }
@@ -255,7 +258,7 @@ export default {
 
   .section-title {
     font-size: 32rpx;
-    color: @text-main;
+    color: $text-main;
     font-weight: 600;
     margin-bottom: 24rpx;
   }
@@ -273,22 +276,22 @@ export default {
       align-items: center;
       margin-bottom: 32rpx;
       padding-bottom: 24rpx;
-      border-bottom: 1px solid @border-color;
+      border-bottom: 1px solid $border-color;
 
       .player-score {
         font-size: 32rpx;
         font-weight: 500;
-        color: @text-main;
+        color: $text-main;
       }
       .vs {
-        color: @secondary;
+        color: $secondary;
         font-weight: 700;
         margin: 0 8rpx;
       }
 
       .match-date {
         font-size: 24rpx;
-        color: @text-secondary;
+        color: $text-secondary;
       }
     }
 
@@ -300,7 +303,7 @@ export default {
       .match-time {
         font-size: 48rpx;
         font-weight: 600;
-        color: @secondary;
+        color: $secondary;
       }
 
       .match-type {
@@ -308,13 +311,13 @@ export default {
 
         .time {
           font-size: 28rpx;
-          color: @text-secondary;
+          color: $text-secondary;
           display: block;
         }
 
         .type {
           font-size: 24rpx;
-          color: @text-secondary;
+          color: $text-secondary;
           margin-top: 4rpx;
         }
       }

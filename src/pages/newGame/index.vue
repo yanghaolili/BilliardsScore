@@ -79,8 +79,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-@import "@/assets/css/theme.less"; // 引入主题色变量
+<style lang="scss" scoped>
 .page {
   min-height: 100vh;
 }
@@ -93,7 +92,7 @@ export default {
 }
 /* 顶部标题栏 */
 .top-header {
-  background: @primary;
+  background: $primary;
   padding: 40rpx 32rpx;
   text-align: center;
   color: #fff;
@@ -106,7 +105,7 @@ export default {
 
   .subtitle {
     font-size: 24rpx;
-    color: @secondary;
+    color: $secondary;
     letter-spacing: 4rpx;
     margin: 0;
   }
@@ -133,7 +132,7 @@ export default {
     }
     .mode-item-enTitle {
       font-size: 24rpx;
-      color: @secondary;
+      color: $secondary;
       margin-bottom: 16rpx;
     }
     .mode-item-rule {
@@ -145,8 +144,8 @@ export default {
   .mode-item:active {
     box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
     transform: scale(0.98);
-    border-color: @primary;
-    background: linear-gradient(180deg, @primary 0%, #ffffff 100%);
+    border-color: $primary;
+    background: linear-gradient(180deg, $primary 0%, #ffffff 100%);
   }
 }
 .operate {

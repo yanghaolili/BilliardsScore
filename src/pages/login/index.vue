@@ -31,17 +31,19 @@
           icon-color="#fff"
           @click="handleWechatLogin"
           :loading="wechatLoading"
+          :customStyle="{ background: '#07C160', color: '#fff', fontSize: '24rpx' }"
           class="wechat-btn"
+          v-if="!showPhoneLogin"
         >
           微信一键登录
         </u-button>
         
         <!-- 手机号登录 -->
         <view class="phone-login-section" v-if="showPhoneLogin">
-          <u-line color="#e4e7ed" />
-          <view class="phone-title">或使用手机号登录</view>
+          <u-line color="#e4e7ed" v-if="!showPhoneLogin"/>
+          <view class="phone-title" v-if="!showPhoneLogin">或使用手机号登录</view>
           
-          <u-form :model="formData" ref="uForm" class="phone-form">
+          <u-form labelPosition="top" labelWidth="150px" :model="formData" ref="uForm" class="phone-form">
             <u-form-item label="手机号" prop="phone" borderBottom>
               <u-input
                 v-model="formData.phone"
@@ -173,10 +175,6 @@ export default {
     }
   },
   
-  onReady() {
-    this.$refs.uForm.setRules(this.rules)
-  },
-  
   onUnload() {
     if (this.timer) {
       clearInterval(this.timer)
@@ -188,9 +186,11 @@ export default {
     
     // 微信登录
     async handleWechatLogin() {
+      console.log(this.$refs.uToast);
+      
       if (!this.agreed) {
         this.$refs.uToast.show({
-          title: '请先阅读并同意用户协议',
+          message: '请先阅读并同意用户协议',
           type: 'warning'
         })
         return
@@ -218,7 +218,7 @@ export default {
           })
           
           this.$refs.uToast.show({
-            title: '登录成功',
+            message: '登录成功',
             type: 'success'
           })
         } else {
@@ -227,7 +227,7 @@ export default {
       } catch (error) {
         console.error('微信登录失败:', error)
         this.$refs.uToast.show({
-          title: error.message || '登录失败，请重试',
+          message: error.message || '登录失败，请重试',
           type: 'error'
         })
       } finally {
@@ -239,7 +239,7 @@ export default {
     async getSmsCode() {
       if (!this.formData.phone) {
         this.$refs.uToast.show({
-          title: '请输入手机号',
+          message: '请输入手机号',
           type: 'warning'
         })
         return
@@ -260,12 +260,12 @@ export default {
         }, 1000)
         
         this.$refs.uToast.show({
-          title: '验证码已发送',
+          message: '验证码已发送',
           type: 'success'
         })
       } catch (error) {
         this.$refs.uToast.show({
-          title: error.message || '验证码发送失败',
+          message: error.message || '验证码发送失败',
           type: 'error'
         })
       }
@@ -273,13 +273,14 @@ export default {
     
     // 手机号登录
     async handlePhoneLogin() {
+      this.$refs.uForm.setRules(this.rules)
       // 表单验证
       const valid = await this.$refs.uForm.validate()
       if (!valid) return
       
       if (!this.agreed) {
         this.$refs.uToast.show({
-          title: '请先阅读并同意用户协议',
+          message: '请先阅读并同意用户协议',
           type: 'warning'
         })
         return
@@ -305,7 +306,7 @@ export default {
         }
       } catch (error) {
         this.$refs.uToast.show({
-          title: error.message || '登录失败',
+          message: error.message || '登录失败',
           type: 'error'
         })
       } finally {
