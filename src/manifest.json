@@ -48,7 +48,10 @@
 	"quickapp": {},
 	"mp-weixin": {
 		"appid": "wxa67ac5e14659ae3e",
+		"miniprogramRoot": "",
+		"cloudfunctionRoot": "cloudfunctions/",
 		"setting": {
+			"cloud": true,
 			"urlCheck": false,
 			"es6": true,
 			"enhance": true,
@@ -66,7 +69,7 @@
 				"list": [
 					{
 						"name": "登录页面",
-						"pathName": "pages/login/login",
+						"pathName": "pages/login/index",
 						"query": "",
 						"scene": null
 					}
