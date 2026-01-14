@@ -63,9 +63,15 @@ export default {
   },
   methods: {
     handleChooseMode(modeKey) {
-      uni.navigateTo({
-        url: "/pages/player/index",
-      });
+      // uni.navigateTo({
+      //   url: "/pages/player/index",
+      // });
+      if(modeKey !== 'chineseEightBall') {
+        uni.showToast({
+          title: "该模式正在开发中，敬请期待！",
+          icon: "none",
+        });
+      }
     },
     handleBack() {
       uni.navigateBack();
@@ -88,7 +94,7 @@ export default {
 /* 顶部标题栏 */
 .top-header {
   background: $primary;
-  padding: 40rpx 32rpx;
+  padding: 80rpx 32rpx;
   text-align: center;
   color: #fff;
 
@@ -135,12 +141,12 @@ export default {
       color: #666;
       line-height: 1.5;
     }
-  }
-  .mode-item:active {
-    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
-    transform: scale(0.98);
-    border-color: $primary;
-    background: linear-gradient(180deg, $primary 0%, #ffffff 100%);
+    &:active {
+      box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+      transform: scale(0.98);
+      border-color: #e0e0e0;
+      background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 100%);
+    }
   }
 }
 .operate {

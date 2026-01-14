@@ -27,7 +27,15 @@
       </view>
       <view class="user-line"></view>
       <!-- 用户操作 -->
-      <view class="user-operate"></view>
+      <view class="user-operate">
+        <view class="user-operate-list">
+          <view class="user-operate-list-item" v-for="(item, index) in operateList" :key="index">
+            <u-icon :name="item.icon" size="24"></u-icon>
+            <text class="operate-title">{{ item.title }}</text>
+            <u-icon name="arrow-right" size="16"></u-icon>
+          </view>
+        </view>
+      </view>
       <!-- 退出登录按钮 -->
       <view class="logout-btn">
         <u-button
@@ -47,7 +55,22 @@
 import { mapMutations } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      operateList:[
+        {
+          title: "修改资料",
+          icon: "edit-pen",
+        },
+        {
+          title: "修改密码",
+          icon: "setting",
+        },
+        {
+          title: "关于我们",
+          icon: "kefu-ermai",
+        }
+      ]
+    };
   },
   computed: {
     userInfo() {
@@ -106,11 +129,6 @@ export default {
   padding: 80rpx 32rpx;
   display: flex;
 }
-// .user-level {
-//   /deep/ .u-transition {
-//     margin: 32rpx;
-//   }
-// }
 .user-details {
   margin-left: 24rpx;
   display: flex;
@@ -136,6 +154,26 @@ export default {
 }
 .user-operate {
   flex: 1;
+  overflow: hidden;
+  .user-operate-list {
+    height: 100%;
+    .user-operate-list-item {
+      height: 96rpx;
+      background: #fff;
+      display: flex;
+      border-bottom: 1px solid #e0e0e0;
+      align-items: center;
+      padding: 0 32rpx;
+      &:active {
+        background: #e0e0e0;
+      }
+      .operate-title {
+        flex: 1;
+        margin-left: 24rpx;
+        font-size: 28rpx;
+      }
+    }
+  }
 }
 .logout-btn {
   display: flex;

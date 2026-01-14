@@ -18,7 +18,12 @@
           <u-button
             size="small"
             shape="circle"
-            :customStyle="{ width: '140rpx', background: '#D4AF37', color: '#fff', fontSize: '24rpx' }"
+            :customStyle="{
+              width: '140rpx',
+              background: '#D4AF37',
+              color: '#fff',
+              fontSize: '24rpx',
+            }"
             @click="handleOpenNewGame"
             >立即开始</u-button
           >
@@ -90,17 +95,21 @@ export default {
     };
   },
   methods: {
-    // 跳转计分页
-    toScorePage() {
-      //   this.$router.push('/score')
-    },
     // 跳转数据统计
     toStatistics() {
-      //   this.$router.push('/statistics')
+      // TODO 数据统计
+      uni.showToast({
+        title: "数据统计功能正在开发中，敬请期待！",
+        icon: "none",
+      });
     },
     // 跳转球员管理
     toPlayerManage() {
-      //   this.$router.push('/player')
+      // TODO 球员管理
+      uni.showToast({
+        title: "球员管理功能正在开发中，敬请期待！",
+        icon: "none",
+      });
     },
     // 跳转比赛详情
     toMatchDetail() {
@@ -223,8 +232,9 @@ export default {
       cursor: pointer;
       transition: all 0.3s ease;
 
-      &:hover {
-        box-shadow: 0 8rpx 24rpx rgba(10, 61, 46, 0.1);
+      &:active {
+        background: #e0e0e0;
+        transform: scale(0.98);
       }
 
       .func-icon {
