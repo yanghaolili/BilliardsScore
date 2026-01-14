@@ -1,5 +1,9 @@
+<template></template>
 <script>
 export default {
+  data() {
+    return {};
+  },
   onLaunch: function () {
     // 初始化云开发
     if (wx.cloud) {
@@ -19,7 +23,6 @@ export default {
   },
   onShow: function () {
     console.log("App Show");
-    
   },
   onHide: function () {
     console.log("App Hide");

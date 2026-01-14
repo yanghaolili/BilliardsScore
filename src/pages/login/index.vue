@@ -239,20 +239,28 @@ export default {
       isRegister: false,
     };
   },
-
-  onUnload() {
-    if (!this.isRegister) {
-      this.$refs.loginForm.setRules(this.loginRules);
-    } else {
-      this.$refs.registerForm.setRules(this.registerRules);
-    }
-  },
-  onReady() {
-    this.$refs.loginForm.setRules(this.loginRules);
+  watch: {
+    isRegister: {
+      handler() {
+        this.$nextTick(() => {
+          if (!this.isRegister) {
+            this.$refs.loginForm.setRules(this.loginRules);
+          } else {
+            this.$refs.registerForm.setRules(this.registerRules);
+          }
+        });
+      },
+      immediate: true,
+    },
   },
 
   methods: {
-    ...mapMutations(["SET_USER_INFO", "SET_TOKEN"]),
+    ...mapMutations([
+      "SET_USER_INFO",
+      "SET_TOKEN",
+      "SET_ExpiresAt",
+      "SET_ActiveTab",
+    ]),
 
     // 用户协议处理
     handleAgreementChange(e) {
@@ -273,14 +281,15 @@ export default {
     // 注册
     handleRegister() {
       this.isRegister = true;
+      this.$nextTick(() => {
+        this.$refs.registerForm.setRules(this.registerRules);
+      });
     },
     //注册
     async handleRegisterSubmit() {
-
       const valid = await this.$refs.registerForm.validate();
 
       if (!valid) {
-        console.log("fail");
         return;
       }
       try {
@@ -346,7 +355,7 @@ export default {
         password: "",
       });
       this.$nextTick(() => {
-        this.$refs.loginForm.setRules(this.rules);
+        this.$refs.loginForm.setRules(this.loginRules);
       });
     },
     // 登录
@@ -375,9 +384,10 @@ export default {
           title: "登录成功",
           icon: "success",
         });
-        const { token, userInfo } = result.result.data;
+        const { token, userInfo, expiresAt } = result.result.data;
         this.SET_TOKEN(token);
         this.SET_USER_INFO(userInfo);
+        this.SET_ExpiresAt(expiresAt);
         // 跳转首页
         setTimeout(() => {
           uni.navigateTo({
@@ -391,6 +401,9 @@ export default {
         });
       }
     },
+  },
+  onShow: function () {
+    this.SET_ActiveTab("home");
   },
 };
 </script>

@@ -2,8 +2,8 @@
   <u-tabbar
     class="tabbar"
     :placeholder="false"
-    :value="activeTab"
-    @change="(name) => (activeTab = name)"
+    v-model="activeTab"
+    @change="handleChangeTab"
     :fixed="false"
     :safeAreaInsetBottom="false"
   >
@@ -18,20 +18,49 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from "vuex";
 export default {
-  props: {
-    tabbarData: {
-      type: Array,
-      default: () => [],
-    },
-  },
   data() {
     return {
       activeTab: "home",
+      tabbarData: [
+        { name: "home", text: "首页", icon: "home" },
+        { name: "category", text: "战绩", icon: "file-text" },
+        { name: "mine", text: "我的", icon: "account" },
+      ],
     };
+  },
+  computed: {
+    ...mapState(["saveActiveTab"]),
+  },
+  methods: {
+    ...mapMutations(["SET_ActiveTab"]),
+    handleChangeTab(name) {
+      this.SET_ActiveTab(name);
+      let url = "";
+      switch (name) {
+        case "home":
+          url = "/pages/index/index";
+          break;
+        case "match":
+          url = "/pages/match/index";
+          break;
+        case "mine":
+          url = "/pages/mine/index";
+          break;
+        case "category":
+          url = "/pages/category/index";
+          break;
+        default:
+          url = "/pages/index/index";
+      }
+      uni.navigateTo({
+        url: url,
+      });
+    },
+  },
+  mounted() {
+    this.activeTab = this.saveActiveTab;
   },
 };
 </script>
-
-<style scoped lang="scss">
-</style>

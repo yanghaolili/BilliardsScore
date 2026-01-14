@@ -12,7 +12,7 @@ function generateUserId() {
 
 exports.main = async (event, context) => {
   const { username, password, nickname, avatar } = event
-  
+
   try {
     // 1. 检查用户名是否已存在
     const checkResult = await db.collection('users')
@@ -20,21 +20,21 @@ exports.main = async (event, context) => {
         username: username
       })
       .get()
-    
+
     if (checkResult.data.length > 0) {
       return {
         code: 400,
         message: '用户名已存在'
       }
     }
-    
+
     // 2. 密码加密
     const saltRounds = 10
     const hashedPassword = await bcrypt.hash(password, saltRounds)
-    
+
     // 3. 生成用户ID
     const userId = generateUserId()
-    
+
     // 4. 创建用户记录
     const userData = {
       _id: userId,
@@ -46,18 +46,19 @@ exports.main = async (event, context) => {
       updatedAt: db.serverDate(),
       status: 'active', // active, inactive, banned
       lastLoginAt: null,
-      loginCount: 0
+      loginCount: 0,
+      level: 1,
     }
-    
+
     // 5. 保存到数据库
     const result = await db.collection('users').add({
       data: userData
     })
-    
+
     // 6. 返回成功响应（不返回密码）
     const userInfo = { ...userData }
     delete userInfo.password
-    
+
     return {
       code: 200,
       message: '注册成功',
@@ -65,7 +66,7 @@ exports.main = async (event, context) => {
         ...userInfo
       }
     }
-    
+
   } catch (error) {
     console.error('注册失败:', error)
     return {

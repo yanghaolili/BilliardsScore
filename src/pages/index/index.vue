@@ -67,17 +67,12 @@
         </view>
       </view>
     </view>
-
-    <!-- 底部TabBar -->
-    <Tabbar :tabbarData="tabbarData" />
+    <Tabbar />
   </view>
 </template>
-
 	<script>
-import Tabbar from "@/components/tabbar/index.vue"; // 引入底部TabBar组件
 export default {
   name: "BilliardHome",
-  components: { Tabbar },
   data() {
     return {
       // 模拟最近比赛数据
@@ -91,11 +86,6 @@ export default {
           time: "15:30",
           type: "中式黑八",
         },
-      ],
-      tabbarData: [
-        { name: "home", text: "首页", icon: "home" },
-        { name: "category", text: "战绩", icon: "file-text" },
-        { name: "cart", text: "我的", icon: "account" },
       ],
     };
   },

@@ -28,7 +28,7 @@
       </view>
     </view>
     <!-- 底部TabBar -->
-    <Tabbar :tabbarData="tabbarData" />
+    <Tabbar />
   </view>
 </template>
 
@@ -39,11 +39,6 @@ export default {
   components: { Tabbar },
   data() {
     return {
-      tabbarData: [
-        { name: "home", text: "首页", icon: "home" },
-        { name: "category", text: "战绩", icon: "file-text" },
-        { name: "cart", text: "我的", icon: "account" },
-      ],
       modeList: [
         {
           key: "chineseEightBall",
