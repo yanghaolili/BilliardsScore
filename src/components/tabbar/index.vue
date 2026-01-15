@@ -54,7 +54,7 @@ export default {
         default:
           url = "/pages/index/index";
       }
-      uni.navigateTo({
+      uni.redirectTo({
         url: url,
       });
     },

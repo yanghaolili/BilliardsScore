@@ -390,7 +390,7 @@ export default {
         this.SET_ExpiresAt(expiresAt);
         // 跳转首页
         setTimeout(() => {
-          uni.navigateTo({
+          uni.redirectTo({
             url: "/pages/index/index",
           });
         }, 1000);

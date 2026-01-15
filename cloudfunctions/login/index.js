@@ -49,20 +49,6 @@ exports.main = async (event, context) => {
     const token = generateToken(user._id)
     const tokenExpireAt = Date.now() + (7 * 24 * 60 * 60 * 1000) // 7天后过期
     
-    // 4. 创建会话记录（可选）
-    const sessionData = {
-      userId: user._id,
-      token: token,
-      expiresAt: new Date(tokenExpireAt),
-      createdAt: db.serverDate(),
-      deviceInfo: event.deviceInfo || {},
-      ip: event.ip || ''
-    }
-    
-    await db.collection('sessions').add({
-      data: sessionData
-    })
-    
     // 5. 更新用户登录信息
     await db.collection('users')
       .doc(user._id)

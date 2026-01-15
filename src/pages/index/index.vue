@@ -27,6 +27,19 @@
             @click="handleOpenNewGame"
             >立即开始</u-button
           >
+          <u-button
+            size="small"
+            shape="circle"
+            :customStyle="{
+              width: '140rpx',
+              background: '#666666',
+              color: '#fff',
+              fontSize: '24rpx',
+              marginLeft: '16rpx',
+            }"
+            @click="handleJoinRoom"
+            >加入房间</u-button
+          >
         </view>
       </view>
 
@@ -117,8 +130,13 @@ export default {
     },
     // 打开新比赛弹窗
     handleOpenNewGame() {
-      uni.navigateTo({
+      uni.redirectTo({
         url: "/pages/newGame/index",
+      });
+    },
+    handleJoinRoom() {
+      uni.navigateTo({
+        url: "/pages/join/index",
       });
     },
   },

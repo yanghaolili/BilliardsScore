@@ -30,6 +30,20 @@
 				"navigationBarTitleText": "我的",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/join/index",
+			"style": {
+				"navigationBarTitleText": "加入房间",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/rooms/index",
+			"style": {
+				"navigationBarTitleText": "中式八球",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

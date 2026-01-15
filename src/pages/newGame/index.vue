@@ -9,7 +9,7 @@
       <view class="mode">
         <view
           v-for="item in modeList"
-          :key="item.ename"
+          :key="item.key"
           @click="handleChooseMode(item.key)"
           class="mode-item"
         >
@@ -63,18 +63,24 @@ export default {
   },
   methods: {
     handleChooseMode(modeKey) {
-      // uni.navigateTo({
+      // uni.redirectTo({
       //   url: "/pages/player/index",
       // });
-      if(modeKey !== 'chineseEightBall') {
+
+      if (modeKey !== "chineseEightBall") {
         uni.showToast({
           title: "该模式正在开发中，敬请期待！",
           icon: "none",
         });
       }
+      uni.navigateTo({
+        url: "/pages/rooms/index",
+      });
     },
     handleBack() {
-      uni.navigateBack();
+      uni.redirectTo({
+        url: "/pages/index/index",
+      });
     },
   },
 };

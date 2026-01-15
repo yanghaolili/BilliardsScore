@@ -86,7 +86,7 @@ export default {
     ...mapMutations(["LOGOUT"]),
     handleLogout() {
       this.LOGOUT();
-      uni.navigateTo({
+      uni.redirectTo({
         url: "/pages/login/index",
       });
     },
